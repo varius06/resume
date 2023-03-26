@@ -1,10 +1,8 @@
 import model.Resume;
 import storage.AbstractArrayStorage;
 import storage.ArrayStorage;
-import storage.SortedArrayStorage;
-
 public class MainTestArrayStorage {
-    static final AbstractArrayStorage ARRAY_STORAGE = new SortedArrayStorage();
+    static final AbstractArrayStorage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) {
         Resume r1 = new Resume();
