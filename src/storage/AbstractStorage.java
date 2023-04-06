@@ -1,0 +1,52 @@
+package storage;
+
+import arraylist.Simple;
+import exception.ExistStorageException;
+import exception.NotExistStorageException;
+import model.Resume;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class AbstractStorage implements Storage{
+
+    protected abstract Object getSearchKey(String uuid);
+    protected abstract void doSave(Resume resume);
+    protected abstract void doDelete(Object resume);
+    protected abstract boolean isExist(Object searchKey);
+    protected abstract void doUpdate(Resume resume, Object index);
+    protected abstract Resume doGet(Object uuid);
+    public void save(Resume resume) {
+        getNotExistedSearchKey(resume.getUuid());
+        doSave(resume);
+    }
+    public void update(Resume resume) {
+        Object index = getExistedSearchKey(resume.getUuid());
+        doUpdate(resume, index);
+    }
+
+    public Resume get(String uuid) {
+        Object object = getExistedSearchKey(uuid);
+        return doGet(object);
+    }
+    public void delete(String uuid) {
+        Object index = getExistedSearchKey(uuid);
+        doDelete(index);
+    }
+    private Object getNotExistedSearchKey(String uuid) {
+        Object object = getSearchKey(uuid);
+        if (isExist(object)) {
+            throw new ExistStorageException(uuid);
+        }
+        return object;
+    }
+    private Object getExistedSearchKey(String uuid) {
+        Object object = getSearchKey(uuid);
+        if (!isExist(object)) {
+            throw new NotExistStorageException(uuid);
+        }
+        return object;
+    }
+
+
+}

@@ -1,8 +1,12 @@
 import exception.NotExistStorageException;
 import model.Resume;
 import storage.AbstractArrayStorage;
+import storage.AbstractStorage;
+import storage.ListStorage;
 import storage.SortedArrayStorage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainTestArrayStorage {
@@ -21,10 +25,21 @@ public class MainTestArrayStorage {
         ARRAY_STORAGE.save(r3);
         System.out.println("Get r1: " + ARRAY_STORAGE.get(r1.getUuid()));
         System.out.println("Size: " + ARRAY_STORAGE.size());
-        System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
+        //System.out.println("Get dummy: " + ARRAY_STORAGE.get("dummy"));
 
 
         printAll();
+        Resume resume1 = new Resume("uuid18");
+        AbstractStorage abstractStorage = new ListStorage();
+        abstractStorage.save(resume1);
+        Resume resume2 = new Resume("uuid5");
+        Resume resume3 = new Resume("uuid5");
+        abstractStorage.save(resume2);
+        abstractStorage.update(resume3);
+        String rr = "";
+
+
+        List<Resume> list = new ArrayList<>();
 
         //ARRAY_STORAGE.delete(r2.getUuid());
         //printAll();
