@@ -18,7 +18,7 @@ public class ListStorage extends AbstractStorage{
         return null;
     }
     @Override
-    protected void doSave(Resume resume) {
+    protected void doSave(Resume resume, Object index) {
         list.add(resume);
     }
 

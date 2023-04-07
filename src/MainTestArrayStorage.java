@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainTestArrayStorage {
-    static final AbstractArrayStorage ARRAY_STORAGE = new SortedArrayStorage();
+    static final AbstractStorage ARRAY_STORAGE = new SortedArrayStorage();
 
     public static void main(String[] args) throws NotExistStorageException{
         String answer = "yes";
@@ -29,14 +29,7 @@ public class MainTestArrayStorage {
 
 
         printAll();
-        Resume resume1 = new Resume("uuid18");
-        AbstractStorage abstractStorage = new ListStorage();
-        abstractStorage.save(resume1);
-        Resume resume2 = new Resume("uuid5");
-        Resume resume3 = new Resume("uuid5");
-        abstractStorage.save(resume2);
-        abstractStorage.update(resume3);
-        String rr = "";
+
 
 
         List<Resume> list = new ArrayList<>();
