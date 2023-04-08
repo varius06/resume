@@ -5,6 +5,8 @@ import exception.NotExistStorageException;
 import exception.StorageException;
 import model.Resume;
 import java.util.Arrays;
+import java.util.List;
+
 public abstract class AbstractArrayStorage extends AbstractStorage {
     protected static final int STORAGE_LIMIT = 10000;
     protected Resume[] storage = new Resume[STORAGE_LIMIT];
@@ -44,6 +46,11 @@ public abstract class AbstractArrayStorage extends AbstractStorage {
         fillDeletedElement((Integer) index);
         storage[size - 1] = null;
         size--;
+    }
+
+    @Override
+    public List<Resume> doCopyAll() {
+        return Arrays.asList(Arrays.copyOfRange(storage, 0, size));
     }
 
     public Resume doGet(Object index) {

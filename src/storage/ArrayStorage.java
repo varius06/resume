@@ -2,6 +2,8 @@ package storage;
 
 import model.Resume;
 
+import java.util.List;
+
 public class ArrayStorage extends AbstractArrayStorage{
     @Override
     protected void fillDeletedElement(int index) {
@@ -20,4 +22,5 @@ public class ArrayStorage extends AbstractArrayStorage{
         }
         return -1;
     }
+
 }
