@@ -22,9 +22,9 @@ public class AbstractStorageTest {
 
     static {
         RESUME_1 = new Resume(UUID_1, "Name1");
-        RESUME_2 = new Resume(UUID_2, "Name1");
-        RESUME_3 = new Resume(UUID_3, "Name1");
-        RESUME_4 = new Resume(UUID_4, "Name1");
+        RESUME_2 = new Resume(UUID_2, "Name2");
+        RESUME_3 = new Resume(UUID_3, "Name3");
+        RESUME_4 = new Resume(UUID_4, "Name4");
     }
 
     protected AbstractStorageTest(Storage storage) {
