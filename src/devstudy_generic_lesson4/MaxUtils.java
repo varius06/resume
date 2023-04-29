@@ -43,6 +43,7 @@ public class MaxUtils {
         System.out.println(findMax(array1, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
+                int a = o1.compareTo(o2);
                 return o1.compareTo(o2);
             }
         }));

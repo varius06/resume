@@ -1,7 +1,6 @@
 package devstudy_generic_lesson4;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class ComparatorTest {
 
@@ -15,6 +14,11 @@ public class ComparatorTest {
         Character[] array1 = { 'b', 'd', 'a', 'g', 'h', 'z' };
         System.out.println("max=" + findMax(array1, null));
         System.out.println("max=" + findMax(array1, reverseOrder));
+        Set<Integer> integerSet = new TreeSet<>();
+        for (int i = 9; i > 0; i--) {
+            integerSet.add(i);
+        }
+        System.out.println(integerSet);
         /*System.out.println("min=" + findMin(array1, null));
         System.out.println("max=" + findMax(array1, reverseOrder));
         System.out.println("min=" + findMin(array1, reverseOrder));
