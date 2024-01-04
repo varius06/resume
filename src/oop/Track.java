@@ -1,26 +1,17 @@
 package oop;
 
-public class Track {
+public abstract class Track {
 
-    private  boolean isLiked;
-    private final long id;
+    protected final long id;
+    protected final boolean isPremiumRequired;
 
-    public Track(boolean isLiked, long id) {
-        this.isLiked = isLiked;
+    public Track(long id, boolean isPremiumRequired) {
         this.id = id;
+        this.isPremiumRequired = isPremiumRequired;
     }
 
-    public void changeLiked(LikeService service, Ui ui) {
-/*        1. service.changeLike(isLiked);*/
-        if(isLiked) {
-            service.likeTrack(id);
-            ui.likeTrack(id);
-
-        } else {
-            service.unlikeTrack(id);
-            ui.unlikeTrack(id);
-        }
-
+    public void play(Player player) {
+        player.play(id);
     }
 }
 
@@ -42,6 +33,12 @@ class Ui{
     }
 
     public void unlikeTrack(long id) {
+
+    }
+}
+
+class Player {
+    void play(long id) {
 
     }
 }
