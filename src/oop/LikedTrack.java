@@ -5,8 +5,11 @@ public class LikedTrack extends Track{
         super(id, isPremiumRequired);
     }
 
-    public void unlike(LikeService likeService) {
-        // удаляем трэк из избранного на сервере передавая службе LikeService которая удалит трэк.
-        likeService.unlikeTrack(id);
+    @Override
+    public void changeLike(ChangeLike[] services) {
+        for(ChangeLike service: services) {
+            service.unlikeTrack(id);
+        }
     }
+
 }

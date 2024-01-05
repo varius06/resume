@@ -13,28 +13,38 @@ public abstract class Track {
     public void play(Player player) {
         player.play(id);
     }
+
+    public abstract void changeLike(ChangeLike[] service);
 }
 
-class LikeService {
-   /* 1. public void changeLike(boolean isLiked) {
-    }*/
+class LikeService extends CloudDateSource implements ChangeLike{
+
+    @Override
     public void likeTrack(long id) {
 
     }
 
+    @Override
     public void unlikeTrack(long id) {
 
     }
 }
 
-class Ui{
+class Ui implements ChangeLike{
+
+    @Override
     public void likeTrack(long id) {
 
     }
 
+    @Override
     public void unlikeTrack(long id) {
 
     }
+}
+
+abstract class CloudDateSource {
+
 }
 
 class Player {
@@ -43,3 +53,7 @@ class Player {
     }
 }
 
+interface ChangeLike {
+    void likeTrack(long id);
+    void unlikeTrack(long id);
+}
