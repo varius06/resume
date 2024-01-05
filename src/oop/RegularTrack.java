@@ -5,8 +5,9 @@ public class RegularTrack extends Track{
         super(id, isPremiumRequired);
     }
 
-    public void likeTrack(LikeService service) {
-        // добавляем трэк в избранное на сервер передавая службе LikeService которая добавит трэк.
-        service.likeTrack(id);
+    public void changeLike(ChangeLike[] services) {
+        for(ChangeLike service: services) {
+            service.likeTrack(id);
+        }
     }
 }
