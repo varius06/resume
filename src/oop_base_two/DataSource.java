@@ -1,5 +1,5 @@
 package oop_base_two;
 
-public interface DataSource {
-   MyData data();
+public interface DataSource <T>{
+   T data();
 }

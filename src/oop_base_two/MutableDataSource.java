@@ -1,5 +1,5 @@
 package oop_base_two;
 
-public interface MutableDataSource extends DataSource{
-    void saveData(MyData data);
+public interface MutableDataSource<T> extends DataSource<T>{
+    void saveData(T data);
 }

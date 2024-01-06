@@ -1,6 +1,6 @@
 package oop_base_two;
 
-public final class CloudDataSource implements DataSource{
+public final class MyDataCloudDataSource implements DataSource<MyData>{
     @Override
     public MyData data() {
         return new MyData(1, "1");

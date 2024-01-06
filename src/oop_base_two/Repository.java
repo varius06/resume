@@ -1,17 +1,17 @@
 package oop_base_two;
 
-public class Repository implements MutableDataSource{
-    private final DataSource cloud;
-    private final MutableDataSource cache;
+public class Repository<T> implements MutableDataSource<T>{
+    private final DataSource<T> cloud;
+    private final MutableDataSource<T> cache;
 
-    public Repository(DataSource cloud, MutableDataSource cache) {
+    public Repository(DataSource<T> cloud, MutableDataSource<T> cache) {
         this.cloud = cloud;
         this.cache = cache;
     }
 
     @Override
-    public MyData data() {
-        MyData data = cache.data();
+    public T data() {
+        T data = cache.data();
         if(data == null) {
             data = cloud.data();
         }
@@ -19,7 +19,7 @@ public class Repository implements MutableDataSource{
     }
 
     @Override
-    public void saveData(MyData data) {
+    public void saveData(T data) {
         cache.saveData(data);
     }
 }
