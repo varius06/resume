@@ -1,4 +1,4 @@
-package oop_base;
+package oop_base_one;
 
 public class Triangle extends Figure{
     protected Triangle(double a, double b, double c) {

@@ -1,4 +1,4 @@
-package oop_base;
+package oop_base_one;
 
 public class TestFigure {
     public static void main(String[] args) {

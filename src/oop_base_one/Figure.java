@@ -1,4 +1,4 @@
-package oop_base;
+package oop_base_one;
 
 public abstract class Figure {
     final String type;

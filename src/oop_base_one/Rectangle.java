@@ -1,4 +1,4 @@
-package oop_base;
+package oop_base_one;
 
 public class Rectangle extends Figure{
     protected Rectangle(double a, double b) {
