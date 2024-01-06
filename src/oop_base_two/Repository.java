@@ -1,10 +1,10 @@
 package oop_base_two;
 
-public class Repository extends DataSource{
+public class Repository implements MutableDataSource{
     private final DataSource cloud;
-    private final DataSource cache;
+    private final MutableDataSource cache;
 
-    public Repository(DataSource cloud, DataSource cache) {
+    public Repository(DataSource cloud, MutableDataSource cache) {
         this.cloud = cloud;
         this.cache = cache;
     }

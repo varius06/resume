@@ -1,6 +1,6 @@
 package oop_base_two;
 
-public final class CacheDataSource extends DataSource{
+public final class CacheDataSource implements MutableDataSource{
     private MyData data;
     @Override // load data from Bd or form file
     public MyData data() {
