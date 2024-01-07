@@ -1,12 +1,12 @@
 package oop_callback;
 
-public interface DataCallback {
+public interface DataCallback<T, E> {
 
     void returnSuccess(DataContainer dataContainer);
 
     void returnError(ErrorInfo errorInfo);
 
-    class Base implements DataCallback{
+    class Base implements DataCallback<DataContainer, ErrorInfo>{
 
         private final Log log;
 
