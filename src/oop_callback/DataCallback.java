@@ -4,7 +4,6 @@ public interface DataCallback<T, E> {
 
     void returnSuccess(DataContainer dataContainer);
 
-    void returnError(ErrorInfo errorInfo);
 
     class Base implements DataCallback<DataContainer, ErrorInfo>{
 
@@ -19,10 +18,6 @@ public interface DataCallback<T, E> {
             dataContainer.show();
         }
 
-        @Override
-        public void returnError(ErrorInfo errorInfo) {
-            errorInfo.log(log);
-        }
     }
 
 }
