@@ -1,5 +1,7 @@
 package kotlin_lambuda
 
+import java.util.UUID
+
 fun main() {
     val isEven = IntPredicate { it % 2 == 0 }
     val evenNumbers = filter(listOf(1, 2, 3, 4), isEven)
@@ -28,23 +30,26 @@ fun main() {
     }
     filterStudentInterface(arraylist, interfaceTTwo)
 
-    val text = "test"
-    //val abc = block { text ->  text}
-    val abc = block { test ->  println(test) }
-    val a = " "
+    val abc = block { test: String ->  println(test) }
     val coins: (Int) -> String = { quantity ->
         "$quantity quarters"
     }
     val b: String = coins.invoke(1)
     println(b)
 
+    val test: (text: String) -> Unit = {text ->  println(text) }
+    test.invoke("privet")
+
+    convert(20.0, { c: Double -> c * 1.8 + 32 })
 
 }
 
-
-
+fun convert(x: Double, converter: (Double) -> Double) {
+    val result = converter(x)
+    println("$x is converted to $result") // выводим результат
+}
 fun block(block: (text: String) -> Unit) {
-    block.invoke("test16")
+    block("test16")
     //println(test)
 }
 
