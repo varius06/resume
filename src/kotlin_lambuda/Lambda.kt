@@ -21,6 +21,7 @@ fun main() {
     filterLambda(arraylist, lam)
 
     val interfaceTOne: InterfaceT<Student> = InterfaceT { s -> s.getAge() < 20 }
+    println(interfaceTOne.check(student1))
     filterStudentInterface(arraylist, interfaceTOne)
 
     val interfaceTTwo = object : InterfaceT<Student> {
@@ -30,18 +31,36 @@ fun main() {
     }
     filterStudentInterface(arraylist, interfaceTTwo)
 
-    val abc = block { test: String ->  println(test) }
+
     val coins: (Int) -> String = { quantity ->
         "$quantity quarters"
     }
     val b: String = coins.invoke(1)
     println(b)
 
-    val test: (text: String) -> Unit = {text ->  println(text) }
-    test.invoke("privet")
+    val test1: (text: String) -> Unit = {text ->  println(text) }
+    test1.invoke("privet")
+
+    val abc = block { test: String ->  println(test) }
 
     convert(20.0, { c: Double -> c * 1.8 + 32 })
 
+    val iTest: ITest<Student> = ITest {  }
+    val test = TestInterface(student1).setInterface{s: Student -> println(s.getAge().toString() + " iTest")}
+    iTest.check(student1)
+
+}
+
+fun interface ITest<T> {
+    fun check(t: T)
+}
+
+class TestInterface(private val student: Student){
+    var iTest: ITest<Student>? = null
+    fun setInterface(iTest: ITest<Student>) {
+        this.iTest = iTest
+        iTest.check(student)
+    }
 }
 
 fun convert(x: Double, converter: (Double) -> Double) {
@@ -79,6 +98,8 @@ fun interface InterfaceT<T> {
     fun check(t: T): Boolean
 }
 
+
+
 fun interface IntPredicate {
     fun accept(i: Int): Boolean
 }
@@ -95,3 +116,5 @@ class Student(private val name: String, private val age: Int) {
         return this.age
     }
 }
+
+
